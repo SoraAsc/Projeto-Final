@@ -155,13 +155,14 @@ public class GUI : MonoBehaviour
         else source.Stop();
         cameraOrbitFollow.target = null;
         Vector3 desiredPos = gameManager.planets[i].planetRotateObject.transform.localPosition + offset;
-        while (Vector3.Distance(cameraOrbitFollow.transform.localPosition, desiredPos) >= gameManager.planets[i].distanceMax)
+        while (Vector3.Distance(cameraOrbitFollow.transform.localPosition, desiredPos) >= gameManager.planets[i].distanceMin+.2f)
         {
             //Debug.Log(Vector3.Distance(cameraOrbitFollow.transform.localPosition, desiredPos));
             desiredPos = gameManager.planets[i].planetRotateObject.transform.localPosition + offset;
             Vector3 smoothedPos = Vector3.Lerp(cameraOrbitFollow.transform.localPosition, desiredPos, smoothSpeed);
             cameraOrbitFollow.transform.localPosition = smoothedPos;
-            cameraOrbitFollow.transform.LookAt(2* cameraOrbitFollow.transform.position - gameManager.planets[i].planetRotateObject.transform.position);
+            cameraOrbitFollow.transform.LookAt(gameManager.planets[i].planetRotateObject.transform.position);
+            //cameraOrbitFollow.transform.LookAt(2* cameraOrbitFollow.transform.position - gameManager.planets[i].planetRotateObject.transform.position);
             //transform.LookAt(2 * transform.position - stareat.position);
             //transform.rotation = Quaternion.LookRotation(transform.position - target.position);
             //cameraOrbitFollow.transform.LookAt(gameManager.planets[i].planetTranslateObject.transform);
@@ -268,7 +269,7 @@ public class GUI : MonoBehaviour
         lastInformationShow = StartCoroutine(ShowInformation());
         
     }
-
+    
     public void OpenCredits()
     {
         creditsCamera.gameObject.SetActive(true);

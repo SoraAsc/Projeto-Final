@@ -15,10 +15,30 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60;
-
-        //Application.targetFrameRate = 300;
+        OrganizeAlpha();
         StartCoroutine(DelaySpawn()); //Ao iniciar é chamado a chance de aparecer uma estrela.
     }
+
+    public void OrganizeAlpha()
+    {
+        for(int i = 0; i < planets.Count; i++)
+        {
+            planets[i].alpha = GetAlphaValue(planets[i].planetTimeToTranslate);
+
+            for(int j = 0; j < planets[i].SateliteNatural.Count; j++)
+            {
+                planets[i].SateliteNatural[j].alpha = GetAlphaValue(planets[i].SateliteNatural[j].satelliteTimeToTranslate);
+            }
+        }
+    }
+
+    public float GetAlphaValue(float duration)
+    {
+        float alpha = (GetComponent<Timer>().theTime / 1440f); /// 3.154e+7f)* 360; //22000
+        //Debug.Log(alpha);
+        return alpha;
+    }
+
     IEnumerator DelaySpawn()
     {
         yield return new WaitForSeconds(delay);

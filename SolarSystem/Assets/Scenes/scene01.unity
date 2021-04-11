@@ -215,6 +215,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &53783783
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -572,9 +573,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theTime: 0
-  speed: 1
-  timeText: {fileID: 142275245}
-  anttime: 0
 --- !u!222 &142275247
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1649,6 +1647,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &356967649
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8583,6 +8582,7 @@ GameObject:
   - component: {fileID: 601522657}
   - component: {fileID: 601522658}
   - component: {fileID: 601522659}
+  - component: {fileID: 601522661}
   - component: {fileID: 601522660}
   m_Layer: 0
   m_Name: Manager
@@ -8644,6 +8644,7 @@ MonoBehaviour:
     - "Um dos dois \xFAnicos planetas do Sistema Solar que n\xE3o possui um Sat\xE9lite
       Natural.(1/2)"
     planetSong: {fileID: 8300000, guid: 4f358827e88aef94e9bea6a3b2b10062, type: 3}
+    startRot: {x: 0, y: 0, z: 0, w: 0}
   - planetName: "V\xEAnus"
     planetTimeToRotate: 20995200
     planetTimeToTranslate: 19414080
@@ -8670,6 +8671,7 @@ MonoBehaviour:
     - "Um dos dois \xFAnicos planetas do Sistema Solar que n\xE3o possui um Sat\xE9lite
       Natural.(2/2)"
     planetSong: {fileID: 8300000, guid: 5c9becc5e8a5e4245b39b94be08035ca, type: 3}
+    startRot: {x: 0, y: 0, z: 0, w: 0}
   - planetName: Terra
     planetTimeToRotate: 86400
     planetTimeToTranslate: 31536000
@@ -8695,6 +8697,7 @@ MonoBehaviour:
       e transla\xE7\xE3o \xE9 de 24 horas e 365 dias, respectivamente e aproximados"
     - "Seu Sat\xE9lite Natural se denomina por \u201CLua\u201D"
     planetSong: {fileID: 8300000, guid: bfb56c6dd620f7d4b815c85307ac310a, type: 3}
+    startRot: {x: 0, y: 1, z: 0, w: 0}
   - planetName: Marte
     planetTimeToRotate: 88992
     planetTimeToTranslate: 59287680
@@ -8723,6 +8726,7 @@ MonoBehaviour:
       mais pr\xF3ximo do Sol"
     - "Seus dois Sat\xE9lites Naturais se chamam Fobos e Deimos"
     planetSong: {fileID: 8300000, guid: 574da1c708b257e41a5563c9a9fb7e8d, type: 3}
+    startRot: {x: 0, y: 0, z: 0, w: 0}
   - planetName: "J\xFApiter"
     planetTimeToRotate: 35424
     planetTimeToTranslate: 374016960
@@ -8755,6 +8759,7 @@ MonoBehaviour:
       e 12 anos terrestres, respectivamente, sendo sua rota\xE7\xE3o a mais r\xE1pida
       entre os Planetas do Sistema Solar"
     planetSong: {fileID: 8300000, guid: 77d201d5bcc59c14a8cc38d0d0bd2813, type: 3}
+    startRot: {x: 0, y: 0, z: 0, w: 0}
   - planetName: Saturno
     planetTimeToRotate: 38880
     planetTimeToTranslate: 929050560
@@ -8787,6 +8792,7 @@ MonoBehaviour:
     - "Sua rota\xE7\xE3o e transla\xE7\xE3o, respectivamente, levam em torno de 10h
       e 30 anos terrestres"
     planetSong: {fileID: 8300000, guid: 42c4d98fffa9ab14ca72e542fc5de217, type: 3}
+    startRot: {x: 0, y: 0, z: 0, w: 0}
   - planetName: Urano
     planetTimeToRotate: 62208
     planetTimeToTranslate: 2.6493394e+9
@@ -8812,6 +8818,7 @@ MonoBehaviour:
     - "Em m\xE9dia para completar seus movimentos tanto de rota\xE7\xE3o, como transla\xE7\xE3o
       leva 17 horas e 165 anos, respectivamente"
     planetSong: {fileID: 8300000, guid: 82e588e74a5054f4488310287a2316f4, type: 3}
+    startRot: {x: 0, y: 0, z: 0, w: 0}
   - planetName: Netuno
     planetTimeToRotate: 57888
     planetTimeToTranslate: 7.839534e+9
@@ -8836,6 +8843,7 @@ MonoBehaviour:
     - "Seu movimento de rota\xE7\xE3o e transla\xE7\xE3o \xE9 de aproximadamente
       16 horas e 164 anos terrestres, respectivamente"
     planetSong: {fileID: 8300000, guid: 7a932205f8bfb5e478315f8b153186ad, type: 3}
+    startRot: {x: 0, y: 0, z: 0, w: 0}
   - planetName: Sol
     planetTimeToRotate: 2333000
     planetTimeToTranslate: 0
@@ -8863,6 +8871,7 @@ MonoBehaviour:
       lhe resta 7 bilh\xF5es de anos neste seu est\xE1gio estelar chamado Estrela"
     - "Estudos afirmam que o seu pr\xF3ximo est\xE1gio seja uma gigante vermelha"
     planetSong: {fileID: 8300000, guid: cea7c0f9e74041049817cf4456bc8054, type: 3}
+    startRot: {x: 0, y: 0, z: 0, w: 0}
   prefabAster: {fileID: 1897438912401683092, guid: 6a299025897b78d499c173525535b695,
     type: 3}
   chance: 0.1
@@ -8899,6 +8908,19 @@ MonoBehaviour:
   distanceMin: 30000
   chanceSpawn: 0.2
   starFather: {fileID: 1517692874}
+--- !u!114 &601522661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601522656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4be46caed5c3f4b999578484f0ea05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theTime: 0
 --- !u!1001 &607148008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9316,6 +9338,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &619044010
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9581,7 +9604,7 @@ MonoBehaviour:
   - {fileID: 2018431836}
   orbitCamera: {fileID: 346285467}
   offset: {x: 0, y: 0, z: 0}
-  smoothSpeed: 0.0525
+  smoothSpeed: 0.0625
 --- !u!1 &709151587
 GameObject:
   m_ObjectHideFlags: 0
@@ -10120,6 +10143,7 @@ MonoBehaviour:
   yValue: 0.24
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &729892779
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16029,6 +16053,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &1018729844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16317,6 +16342,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &1080704998
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16986,6 +17012,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &1122543975
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17541,6 +17568,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &1295988599
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19455,6 +19483,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &1583461626
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19781,6 +19810,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &1621394988
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20066,6 +20096,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &1734877257
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25515,6 +25546,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &1940186463
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31835,6 +31867,7 @@ MonoBehaviour:
   yValue: 0
   c: 0
   alpha: 0
+  startRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &2091546552
 MeshRenderer:
   m_ObjectHideFlags: 0

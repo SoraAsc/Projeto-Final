@@ -19,6 +19,8 @@ public class Satellite : MonoBehaviour
     public float yValue;
     public float c;
     public float alpha;
+
+    public Quaternion startRot;
     public Satellite(string newsatelliteName, float newsatelliteTimeToRotate, float newsatelliteTimeToTranslate,
         GameObject newsatelliteTranslateObject, GameObject newsatelliteRotateObject, float newElipseAValue,
         float newElipseBValue, float newYValue,float newC,float newAlpha)
@@ -33,6 +35,10 @@ public class Satellite : MonoBehaviour
         yValue = newYValue;
         c = newC;
         alpha = newAlpha;
+    }
+    private void Start()
+    {
+        startRot = new Quaternion(0, 1, 0, 0);
     }
 
     private void LateUpdate()

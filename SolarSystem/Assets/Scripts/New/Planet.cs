@@ -31,6 +31,9 @@ public class Planet : IComparable<Planet>
     public string[] informations;
 
     public AudioClip planetSong;
+
+    public Quaternion startRot;
+
     public Planet(string newPlanetName,float newPlanetTimeToRotate,
         float newPlanetTimeToTranslate, GameObject newPlanetTranslateObject, 
         GameObject newPlanetRotateObject,float newElipseAValue, float newElipseBValue,GameObject newOrbitLine,

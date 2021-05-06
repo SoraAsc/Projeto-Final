@@ -8646,7 +8646,7 @@ MonoBehaviour:
     planetSong: {fileID: 8300000, guid: 4f358827e88aef94e9bea6a3b2b10062, type: 3}
     startRot: {x: 0, y: 0, z: 0, w: 0}
   - planetName: "V\xEAnus"
-    planetTimeToRotate: 20995200
+    planetTimeToRotate: -20995200
     planetTimeToTranslate: 19414080
     planetTranslateObject: {fileID: 609977950}
     planetRotateObject: {fileID: 609977950}

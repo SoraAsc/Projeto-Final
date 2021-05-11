@@ -4,31 +4,29 @@ import {
   Text,
   Image,
   View,
-  ScrollView,
   FlatList,
 } from 'react-native';
 
 import DetailsShowButton from './../../components/DetailsShowButton';
 
-export default function Details(props){
-    //console.log(props.route.params.data.imageLink)
-    const data = props.route.params.data
-    //console.log(data.curiosidades[0])
-    return (
-        <View style={styles.container}>
-          <View style={{flex: 0.5}}>
-            <Image style={styles.itemimage} source={data.imageLink}>                
-            </Image>
-          </View>
-          
-          <View style={{flex:0.5}}>
-            
-            <ScrollView>
-              <View style={{backgroundColor:'white',}}>
-                <Text style={styles.title}>Informações Básicas</Text>            
-              </View>
 
-              <View style={{flex:1, flexDirection:'column', justifyContent:'space-between', flexWrap: 'wrap'}}>
+
+export default function Details(props){
+
+  const data = props.route.params.data
+
+  return(
+    <FlatList style={styles.container}
+      ListHeaderComponent={ () =>{
+        return(
+          <View>
+            <Image style={styles.itemimage} source={data.imageLink}/>
+
+            <View style={{backgroundColor:'white',}}>
+              <Text style={styles.title}>Informações Básicas</Text>            
+            </View>
+
+            <View style={{ flexDirection:'column', alignItems: 'center'}}>
                 <DetailsShowButton name="Ordem Orbital" value={data.informacoesBasicas.ordemOrbital}/>
                 <DetailsShowButton name="Distância Do Sol" value={data.informacoesBasicas.distanciaDoSol}/>
                 <DetailsShowButton name="Massa" value={data.informacoesBasicas.massa}/>
@@ -47,27 +45,21 @@ export default function Details(props){
                 <Text style={styles.title}>Curiosidades</Text>            
               </View>
 
-              <View>
-                <FlatList 
-                  data={data.curiosidades}
-                  keyExtractor={ item=> item.id}
-                  scrollEnabled={false}
-                  showsVerticalScrollIndicator={false}
-                  //renderItem={TopiItem}
-                  renderItem = {({item,index}) =>(
-                    <View>
-                      <Text style={{color: 'white'}}>{index+1}. {item.titulo}</Text>
-                      <Text style={{color: 'white'}}>{item.historia}</Text>
-                    </View>
-                  )}
-                >
-                </FlatList>
-              </View>
-            </ScrollView>
-
           </View>
+        )
+      }}
+      data={data.curiosidades}
+      keyExtractor={ item => item.id}
+      showsVerticalScrollIndicator={false}
+      renderItem = {({item,index}) =>(
+        <View style={styles.curioHolder}>
+          <Text style={styles.curioTitle}>{index+1}. {item.titulo}</Text>
+          <Text style={styles.curioHistory}>{item.historia}</Text>
         </View>
-    )
+      )}
+    
+    />
+  )
 }
 
 const styles = StyleSheet.create({
@@ -90,6 +82,23 @@ const styles = StyleSheet.create({
       color:'black', 
       fontSize:25,
       textAlign:'center',
+    },
+    curioHolder:{
+      //marginHorizontal: 5,
+      //marginVertical: 10,
+    },
+    curioTitle:{
+      color: 'white',
+      marginTop: 10,
+      marginBottom: 5,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 25,
+    },
+    curioHistory:{
+      color: 'white',
+      textAlign: 'justify',
+      marginHorizontal: 20,
     }
 
   });

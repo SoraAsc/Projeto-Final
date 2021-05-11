@@ -1,18 +1,17 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
   Image,
   View,
   FlatList,
-  TouchableOpacity
 } from 'react-native';
 
 
 import Data from './../data/Database'
 
+import TopicItem from './../../components/TopicItem';
+
   export default function App(props){
-    //console.log(props.navigation)
     return(
 
       <View style={styles.container}>
@@ -22,26 +21,12 @@ import Data from './../data/Database'
           ></Image>
         </View>
         <View style={styles.holderPlanetInfo}>
-          <FlatList //style={{flex:1,flexBasis:1,}}
+          <FlatList
             data={Data}
             keyExtractor={ item=> item.id}
             showsVerticalScrollIndicator={false}
-            //renderItem={TopiItem}
             renderItem = {({item}) =>(
-              <View>
-                <TouchableOpacity style={styles.containerButtonItem} activeOpacity={0.5}
-                  onPress={() => props.navigation.navigate('Details',{data: item})}  
-                >
-                    <Image
-                      source = {item.imageLink} 
-                      style={styles.itemimage}
-                    >
-                    </Image>
-  
-                  <Text style={styles.itemtext}>{item.name}</Text>
-  
-                </TouchableOpacity>
-              </View>
+              <TopicItem item={item} navigation= {props.navigation}/>
             )}
           >
           </FlatList>
@@ -70,26 +55,6 @@ import Data from './../data/Database'
       flex: 0.5,
     },
   
-    containerButtonItem: {
-      backgroundColor: '#9300D6',
-      flex: 1,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'flex-end',    
-    },
-    itemimage: {
-      width:'100%',
-      height: 200,
-      flexGrow: 1,
-      opacity: 0.6
-    },
-    itemtext: {
-      position: 'absolute', 
-      right: 30,
-      color: '#fff',
-      fontWeight: 'bold',
-      fontSize: 50,
-    },
   });
   
   

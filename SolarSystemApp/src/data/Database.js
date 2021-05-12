@@ -12,10 +12,10 @@ export default  [
       informacoesBasicas: {
         ordemOrbital: 1,
         distanciaDoSol: '0,46 UA',
-        massa: '3,3011x(10)^23 kg',
-        volume: '6,083x(10)^10 km³',
+        massa: '3,3011×(10)^23 kg',
+        volume: '6,083×(10)^10 km³',
         densidade: '5,427 g/cm³',
-        areaDaSuperficie: '7,48x(10)^7 km²',
+        areaDaSuperficie: '7,48×(10)^7 km²',
         temperatura: '426°C a -183°C  ',
         periodoDeRotacao: '58,646 dias terrestres',
         periodoDeRevolucao: '115,88 dias terrestres',
@@ -47,10 +47,10 @@ export default  [
       informacoesBasicas: {
         ordemOrbital: 2,
         distanciaDoSol: '0,72 UA',
-        massa: '4,8685x(10)^24 kg',
-        volume: '9,2843x(10)^11 km³',
+        massa: '4,8685×(10)^24 kg',
+        volume: '9,2843×(10)^11 km³',
         densidade: '5,243 g/cm³',
-        areaDaSuperficie: '4,60x(10)^8 km²',
+        areaDaSuperficie: '4,60×(10)^8 km²',
         temperatura: '462°C',
         periodoDeRotacao: '243 dias terrestres',
         periodoDeRevolucao: '225 dias terrestres',
@@ -80,10 +80,10 @@ export default  [
       informacoesBasicas: {
         ordemOrbital: 3,
         distanciaDoSol: '1 UA',
-        massa: '4,8685x(10)^24 kg',
-        volume: '9,2843x(10)^11 km³',
+        massa: '4,8685×(10)^24 kg',
+        volume: '9,2843×(10)^11 km³',
         densidade: '5,243 g/cm³',
-        areaDaSuperficie: '4,60x(10)^8 km²',
+        areaDaSuperficie: '4,60×(10)^8 km²',
         temperatura: '462°C',
         periodoDeRotacao: '24 horas',
         periodoDeRevolucao: '365 dias',
@@ -91,12 +91,61 @@ export default  [
         velocidadeDeEscape: '10,36 km/s',
         satelites: 1,
       },
+      curiosidades: [
+        {
+          id: '001',
+          titulo: 'Não é plana e nem esférica.',
+          historia: "\tHá quem acredite que o modelo esférico da Terra é na verdade uma grande conspiração, negando a gravidade e outros grandes fatos científicos, assemelham a terra a uma grande pizza de calabresa com uma espécie de cápsula tendo o Sol e a Lua dentro. Na verdade, os dois modelos, tanto a Teoria da Terra plana, que não chega a ser nem hipótese quanto mais teoria, e a Terra esférica estão errados. A Terra na verdade possui a forma de uma geóide, que diferente do modelo em fala de uma Terra perfeitamente esférica ou somente achatada nos pólos(elipsóide), uma geóide possui várias irregularidades sobre uma planície quase esférica."
+        },
+        {
+          id: '002',
+          titulo: 'Condições para a vida na Terra.',
+          historia: "\tA Terra está a 149,6 milhões de quilómetros do sol, a esta distância da maior fonte de energia do nosso Sistema Solar faz com que a Terra tenha a temperatura certa para possuir água no estado líquido. Somado a isso temos nossa incrível atmosfera que nos protege dos raios ultravioletas direcionados pelo sol graças a o ozônio(O3) e também de impactos meteóricos que em sua maioria esfarelam-se antes de tocar a superfície devido ao atrito do ar atmosférico. Então agora quando seu professor falar que em um mundo ideal não existe atrito, saiba que ele está querendo extinguir a raça humana junto dos outros seres vivos na Terra."
+        },
+        {
+          id: '003',
+          titulo: '”Por que o céu é azul?”',
+          historia: "\tAcho que todos já se perguntaram ou já ouviram o pronunciar desta pergunta icônica. Os raios de luz solar que são recebidos pela Terra possuem todas as sete cores do espectro de luz visível por nós, a soma destas sete cores dão ao Sol raios de luz branco. “Mas então por que não observamos um sol branco?” Isso acontece pelo mesmo motivo através do qual nosso céu é observado na cor azul, a atmosfera de nosso planeta filtra as ondas de luz brancas vindas do Sol resultando no amarelo-avermelhado que observamos ao enxergá-lo, o espalhamento dessa mesma luz recebida pelo Sol dão a nosso céu a tonalidade azul."
+        },
+      ]
+
     },
   
     {
       id: '004',
       name: 'Marte',
       imageLink: require('./../../assets/images/marte.jpg'),
+      informacoesBasicas: {
+        ordemOrbital: 4,
+        distanciaDoSol: '1,5 UA',
+        massa: '6,39×(10)^23 kg',
+        volume: '1,6318×(10)¹¹ km³',
+        densidade: '3,934 g/cm³',
+        areaDaSuperficie: '1,45×(10)^8 km²',
+        temperatura: '-143°C a 35°C',
+        periodoDeRotacao: '24h e 37m',
+        periodoDeRevolucao: '687 dias terrestres',
+        gravidade: '3,71 m/s²',
+        velocidadeDeEscape: '5,03 km/s',
+        satelites: 2,
+      },
+      curiosidades: [
+        {
+          id: '001',
+          titulo: 'Planeta mais apto a ser habitável?',
+          historia: '\tVocê alguma vez já pensou em como seria morar fora da Terra? então lhes apresento Marte, o planeta mais próximo de nós, possivelmente apto a ser habitável. Certamente esse é o planeta mais famoso do sistema solar depois da Terra, seja pela possível vida alienígena ou características que permitam a vida Terráquea, você já ouviu falar nele. Sobre as perguntas mais comuns de se ouvir estão “Marte possui água?" e agora mais recentemente “Estão produzindo oxigênio em solo marciano?” e até “Decolaram um helicóptero na atmosfera do Planeta Vermelho?". Por incrível que pareça para todas essas perguntas a resposta é sim, nos últimos anos Marte tem sido explorado arduamente por várias máquinas e a última delas, o rover planetário Perseverance conseguiu inúmeros feitos como decolar um helicóptero sobre solo marciano e situar um dispositivo que transforma dióxido de carbono retirado da atmosfera de Marte em oxígeno.'
+        },
+        {
+          id: '002',
+          titulo: 'Porque marte é vermelho?',
+          historia: "\tO Planeta Vermelho não recebe este nome à toa, realmente a superfície do planeta leva um tom avermelhado sobre toda ela, mas você já se perguntou o porquê? O planeta empoeirado recebe essa tonalidade justamente pela sua poeira rica em óxido de ferro que é resultado de reações de oxidação do metal chamado magnetita que concede ao planeta um tom semelhante à ferrugem."
+        },
+        {
+          id: '003',
+          titulo: '”Tempestades de areia.”',
+          historia: "\tMarte apesar de"
+        },
+      ]
     },
     {
       id: '005',

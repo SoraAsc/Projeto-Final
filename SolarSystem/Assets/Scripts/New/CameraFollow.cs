@@ -19,6 +19,8 @@ public class CameraFollow : MonoBehaviour
     float velocityY = 0.0f; //velocidade atual no eixo y.
     private Touch touch; //responsável pelo touch em aparelhos moveis.
 
+    bool isAndroid;
+
     // Use this for initialization
     void Start()
     {
@@ -32,33 +34,38 @@ public class CameraFollow : MonoBehaviour
         {
             GetComponent<Rigidbody>().freezeRotation = true;
         }
+
+        switch (Application.platform)
+        {
+            case RuntimePlatform.WindowsPlayer:
+            case RuntimePlatform.WindowsEditor:
+                isAndroid = false;
+                break;
+            default:
+                isAndroid = true;
+                break;
+        }
     }
     //O Late Update é chamado após todos os updates serem chamados, logo os objetos movimentos dos planetas serão executados antes do movimento da camera.
     void LateUpdate()
     {
         if (target) //se o alvo existir
         {
-            switch (Application.platform) //escolhe o movimento do objeto de acordo com a sua plataforma seja android ou pc
+            //escolhe o movimento do objeto de acordo com a sua plataforma seja android ou pc
+            if (isAndroid && Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)//caso tenha um dedo na tela e o mesmo estiver em movimento.
             {
-                //caso for o executavel no pc ou no editor do unity
-                case RuntimePlatform.WindowsPlayer: 
-                case RuntimePlatform.WindowsEditor:
-                    if (Input.GetMouseButton(0))//caso o botão esquerdo do mouse for pressionado
-                    {
-                        //o getAxis pega o movimento do mouse que varia de -1 a 1 e isso tudo é jogado na variavel de velocidade de cada posição.
-                        velocityX += xSpeed * Input.GetAxis("Mouse X") * distance * 0.02f; //o distance serve pra regular a velocidade de acordo com a distância
-                        velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.02f;
-                    }
-                    break;
-                default:
-                    if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved) //caso tenha um dedo na tela e o mesmo estiver em movimento.
-                    {
-                        touch = Input.GetTouch(0); //verifica só o primeiro dedo colocado na tela.
-                        //pega os valores do movimento que variam de -1 a 1
-                        velocityX += touch.deltaPosition.x * xSpeed * 0.02f;
-                        velocityY -= touch.deltaPosition.y * ySpeed * 0.02f;
-                    }
-                    break;
+                touch = Input.GetTouch(0); //verifica só o primeiro dedo colocado na tela.
+                //pega os valores do movimento que variam de -1 a 1                          
+                velocityX += touch.deltaPosition.x * xSpeed * 0.02f;
+                velocityY -= touch.deltaPosition.y * ySpeed * 0.02f;
+            }
+            else if (Input.GetMouseButton(0)) //caso o botão esquerdo do mouse for pressionado
+            {
+
+                //o getAxis pega o movimento do mouse que varia de -1 a 1 e isso tudo é jogado na variavel de velocidade de cada posição.
+                velocityX += xSpeed * Input.GetAxis("Mouse X") * distance * 0.02f; //o distance serve pra regular a velocidade de acordo com a distância
+                velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.02f;
+
             }
             //soma a velocidade de rotação ao angulo de rotação
             rotationYAxis += velocityX; 

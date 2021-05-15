@@ -332,7 +332,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Cr\xE9ditos"
+  m_Text: "B\xF4nus"
 --- !u!222 &55030560
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15639,7 +15639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &927053074
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15656,8 +15656,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1600, y: 150}
+  m_AnchoredPosition: {x: 0, y: 8.2}
+  m_SizeDelta: {x: 1911.3164, y: 1083.9501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &927053075
 MonoBehaviour:
@@ -15679,19 +15679,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d838a6f3b28ea724aac4afdb457b5d4f, type: 3}
-    m_FontSize: 80
+    m_Font: {fileID: 12800000, guid: eb1a7a13258b6f649ba29352a5a58316, type: 3}
+    m_FontSize: 220
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Simulador De Sistema Solar
+    m_LineSpacing: 0.6
+  m_Text: 'Simulador De
+
+    Sistema Solar'
 --- !u!222 &927053076
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15808,7 +15810,7 @@ RectTransform:
   - {fileID: 927053074}
   - {fileID: 1399381512}
   m_Father: {fileID: 1800494140}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18119,6 +18121,85 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!1 &1362919410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1362919411}
+  - component: {fileID: 1362919413}
+  - component: {fileID: 1362919412}
+  m_Layer: 5
+  m_Name: InitialText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1362919411
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362919410}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000306, y: 1.0000306, z: 1.0000306}
+  m_Children: []
+  m_Father: {fileID: 1800494140}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.0000009536743}
+  m_SizeDelta: {x: 1600, y: 130}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1362919412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362919410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.046749115, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 0c35b975f5ea56442aed2e500326c1af, type: 3}
+    m_FontSize: 45
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 300
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "H\xE1 muito tempo atr\xE1s em uma gal\xE1xia n\xE3o t\xE3o distante assim,
+    na verdade em uma mesma gal\xE1xia\u2026"
+--- !u!222 &1362919413
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362919410}
+  m_CullTransparentMesh: 0
 --- !u!1 &1366439703
 GameObject:
   m_ObjectHideFlags: 0
@@ -18581,7 +18662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1399381512
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18590,7 +18671,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399381511}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0, z: -1134}
+  m_LocalPosition: {x: 0, y: 0, z: -4552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 973722723}
@@ -18598,8 +18679,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1412}
-  m_SizeDelta: {x: 1000, y: 3800}
+  m_AnchoredPosition: {x: 0, y: -5709}
+  m_SizeDelta: {x: 2500, y: 13700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1399381513
 MonoBehaviour:
@@ -18627,20 +18708,54 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 300
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Nunca diga nunca, porque sla, na vdd fds quem sou eu para dizer oque voc\xEA
-    deve ou n\xE3o fazer.\n\nTalvez eu seja apenas mais um idiota que n\xE3o sabe
-    o porque das coisas, mas a vida \xE9 assim mesmo.\n\n\n\nOque eu estou escrevendo?
-    Que pergunta idiota meu caro profeta nem eu sei, me pergunto oque fiz com a minha
-    vida, estou aqui eu escrevendo coisas sem sentindo s\xF3 para encher lingui\xE7a,
-    nesse meio tempo eu poderia estar fazendo algo produtivo, mas n\xE3o.\n\n\n\n\n\nConcluindo
-    um pequeno passo para o homem, um grande salto para a humanidade - by Marcos
-    Dias. Fonte? Confia"
+  m_Text: "\tNo final de 2018 ainda cursando o primeiro ano do ensino m\xE9dio e
+    t\xE9cnico j\xE1 est\xE1vamos um pouco ansiosos para o projeto final. A escolha
+    do projeto n\xE3o veio de uma grande indecis\xE3o, pelo contr\xE1rio, j\xE1 sab\xEDamos
+    exatamente oque dever\xEDamos produzir j\xE1 no in\xEDcio do segundo ano. Na
+    verdade eu sempre fui um apaixonado pelo Universo e tudo que existe nele, at\xE9
+    gosto de falar que as coisas as quais mais gosto n\xE3o est\xE3o presentes s\xF3
+    na Terra, Marcos sempre adorou programa\xE7\xE3o e outros ramos da inform\xE1tica,
+    oque tamb\xE9m me levou a gostar. Neste ponto j\xE1 estava claro que ir\xEDamos
+    criar, a d\xFAvida que restava era: Como poder\xEDamos fazer? Quais ferramentas
+    usar? etc\u2026 Naquele tempo Marcos se aprofundava na plataforma Unity e eu
+    tamb\xE9m entrei na vibe, est\xE1vamos cogitando a ideia de um simulador inteiramente
+    em duas dimens\xF5es apesar de um pouco receosos com a ideia, isso limitaria
+    tanto a minha aprendizagem com a plataforma quanto a de Marcos com a f\xEDsica
+    das coisas que ir\xEDamos trabalhar. \r\n\r\n\tUm pouco antes do terceiro ano
+    j\xE1 t\xEDnhamos iniciado o projeto, seria um simulador do Sistema Solar inteiramente
+    em tr\xEAs dimens\xF5es. Nomeamos de Simulador de Sistema Solar(SSS), o nome
+    pouco criativo do projeto foi oque menos discutimos, n\xF3s est\xE1vamos mais
+    preocupados em como ir\xEDamos fazer e por onde come\xE7ar. Partimos primeiramente
+    pelo estudo dos movimentos, a rota\xE7\xE3o, transla\xE7\xE3o, as infernais elipses
+    e etc. Para s\xF3 assim come\xE7armos a colocar as m\xE3os na obra. Economizamos
+    bastante tempo com algumas das informa\xE7\xF5es que eu j\xE1 tinha em mente
+    devido \xE0s minhas pr\xF3prias curiosidades, oque nos ajudou tamb\xE9m a bolar
+    grande parte das ideias do simulador. Passamos ent\xE3o a dividir as tarefas
+    comigo na maioria das revis\xF5es de c\xE1lculo e a parte mais grossa da busca
+    de dados e c\xE1lculos junto com as ideias de design do programa e Marcos na
+    programa\xE7\xE3o revis\xE3o do funcionamento e buscas mais leves junto dos c\xE1lculos
+    de dados. \r\n\r\n\tCom o tempo extra que obtivemos com o desenvolvimento antecipado
+    de nosso projeto final, nos deu a vontade de criar outro programa, um pouco menos
+    complexo. Este, programado tamb\xE9m por Marcos, funciona como um complemento
+    do simulador possuindo diversas informa\xE7\xF5es e curiosidades escritas por
+    mim. A ideia dos dois projetos seria a visualiza\xE7\xE3o dada pelo simulador,
+    para que fosse poss\xEDvel a observa\xE7\xE3o de todo o sistema, e a leitura,
+    como meio de transmitir as informa\xE7\xF5es que obtivemos e achamos t\xE3o importantes,
+    sem poluir o simulador. Vale aqui tamb\xE9m falar sobre o conhecimento m\xFAtuo
+    que foi transmitido neste segundo projeto, tanto da minha parte que tive o contato
+    com uma linguagem de programa\xE7\xE3o que nem mesmo conhecia, quanto da parte
+    de Marcos com as curiosidades e conversas que tivemos. \r\n\r\nFontes\r\n\r\nInforma\xE7\xF5es:\r\nUnity3D
+    Particle Sun Tutorial - YouTube\r\nWhat's Up: Skywatching Tips from NASA \u2013
+    NASA Solar System Exploration\r\nMaking a Custom Planet Ring in Unity - YouTube\r\nAll
+    Planet Sounds From Space (In our Solar System) - YouTube\r\n\r\n\r\nIntegrantes:\r\nMarcos
+    Vin\xEDcios Dias Ferreira\r\nIvanilso Da Silva Concei\xE7\xE3o Filho\r\n\r\nArtes
+    Usadas Nos Planetas:\r\nSolar Textures | Solar System Scope\r\n"
 --- !u!222 &1399381514
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18876,7 +18991,7 @@ GameObject:
   - component: {fileID: 1431007564}
   - component: {fileID: 1431007563}
   m_Layer: 5
-  m_Name: CreditsBtn
+  m_Name: BonusBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20258,7 +20373,7 @@ GameObject:
   - component: {fileID: 1800494140}
   - component: {fileID: 1800494141}
   m_Layer: 5
-  m_Name: CreditsPanel
+  m_Name: Credits/BonusPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20275,6 +20390,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1362919411}
   - {fileID: 973722723}
   m_Father: {fileID: 1592910043}
   m_RootOrder: 1

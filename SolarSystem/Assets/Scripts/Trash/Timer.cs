@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 {
     //[SerializeField]
     //private float theTime = 0;
-    public float theTime = 0;
+    //public float theTime = 0;
 
 /*    [SerializeField]
     private float speed = 1f;
@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
         timeText.text = "Day: " + days + " - " + hours + ":" + minutes + ":" + seconds;
     }*/
 
-    private void Awake()
+/*    private void Awake()
     {
         theTime = 0;
         //Debug.Log(DateTime.UtcNow.ToString("HH:mm:ss dd MM, yyyy"));
@@ -51,5 +51,5 @@ public class Timer : MonoBehaviour
 
         theTime += DateTime.UtcNow.Second;
         //Debug.Log(theTime / 3.154e+7f);
-    }
+    }*/
 }

@@ -15,28 +15,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60;
-        OrganizeAlpha();
         StartCoroutine(DelaySpawn()); //Ao iniciar é chamado a chance de aparecer uma estrela.
-    }
-
-    public void OrganizeAlpha()
-    {
-        for(int i = 0; i < planets.Count; i++)
-        {
-            planets[i].alpha = GetAlphaValue(planets[i].planetTimeToTranslate);
-
-            for(int j = 0; j < planets[i].SateliteNatural.Count; j++)
-            {
-                planets[i].SateliteNatural[j].alpha = GetAlphaValue(planets[i].SateliteNatural[j].satelliteTimeToTranslate);
-            }
-        }
-    }
-
-    public float GetAlphaValue(float duration)
-    {
-        float alpha = (GetComponent<Timer>().theTime / 1440f); /// 3.154e+7f)* 360; //22000
-        //Debug.Log(alpha);
-        return alpha;
     }
 
     IEnumerator DelaySpawn()
@@ -48,7 +27,6 @@ public class GameManager : MonoBehaviour
             GameObject newStar = Instantiate(prefabAster, spawnPos, Quaternion.identity); //as GameObject;
             newStar.transform.LookAt(Vector3.zero);
         }
-        //No final é chamado novamente a função para chamar uma estrela.
         StartCoroutine(DelaySpawn());
     }
 }

@@ -20,7 +20,6 @@ public class Satellite : MonoBehaviour
     public float c;
     public float alpha;
 
-    public Quaternion startRot;
     public Satellite(string newsatelliteName, float newsatelliteTimeToRotate, float newsatelliteTimeToTranslate,
         GameObject newsatelliteTranslateObject, GameObject newsatelliteRotateObject, float newElipseAValue,
         float newElipseBValue, float newYValue,float newC,float newAlpha)
@@ -36,34 +35,5 @@ public class Satellite : MonoBehaviour
         c = newC;
         alpha = newAlpha;
     }
-    private void Start()
-    {
-        startRot = new Quaternion(0, 1, 0, 0);
-    }
-
-/*    private void LateUpdate()
-    {
-        if(satelliteName== "Lua"||transform.childCount>0)
-        {
-
-            //transform.GetChild(0).LookAt(transform);
-            //transform.GetChild(0).Rotate(0, transform.GetChild(0).rotation.y* transform.rotation.y, 0);
-            //transform.GetChild(0).rotation = Quaternion.Euler(0.0f, 90.0f, transform.rotation.z * -1.0f);
-
-            //Debug.Log(Vector3.Distance(transform.position, satelliteTranslateObject.transform.position));
-*//*            if (Physics.Raycast(transform.position, Vector3.left, 10))
-            {
-                //transform.GetChild(0).Rotate(0, 0, 0);
-                //transform.GetChild(0).rotation = Quaternion.Euler(0,0,0);
-                //Debug.Log("estou vendo algo");
-            }
-            else
-            {
-                //transform.GetChild(0).Rotate(0, 90, 0);
-                //transform.GetChild(0).rotation = Quaternion.Euler(0, 90, 0);
-                //Debug.Log("Não estou vendo");
-            }*//*
-        }}*/
-    
 
 }

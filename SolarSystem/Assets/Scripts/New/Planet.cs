@@ -22,7 +22,7 @@ public class Planet : IComparable<Planet>
     public List<Satellite> SateliteNatural;
 
     public int maxSateliteNatural;
-    public Satellite holderSatelite;
+    public GameObject holderSatelite;
 
     public float c;
     public float alpha;
@@ -32,12 +32,10 @@ public class Planet : IComparable<Planet>
 
     public AudioClip planetSong;
 
-    public Quaternion startRot;
-
     public Planet(string newPlanetName,float newPlanetTimeToRotate,
         float newPlanetTimeToTranslate, GameObject newPlanetTranslateObject, 
         GameObject newPlanetRotateObject,float newElipseAValue, float newElipseBValue,GameObject newOrbitLine,
-        float newDistanceMin,float newDistanceMax,int newMaxSateliteNatural, Satellite newHolderSatelite,float newC,
+        float newDistanceMin,float newDistanceMax,int newMaxSateliteNatural, GameObject newHolderSatelite,float newC,
         float newAlpha)
     {
         planetName = newPlanetName;

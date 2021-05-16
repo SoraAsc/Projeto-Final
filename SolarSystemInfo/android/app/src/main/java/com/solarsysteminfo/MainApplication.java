@@ -1,4 +1,4 @@
-package com.solarsystemapp;
+package com.solarsysteminfo;
 
 import android.app.Application;
 import android.content.Context;

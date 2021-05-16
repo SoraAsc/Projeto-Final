@@ -1,4 +1,4 @@
-package com.solarsystemapp;
+package com.solarsysteminfo;
 
 import com.facebook.react.ReactActivity;
 //import com.facebook.react.ReactActivityDelegate;

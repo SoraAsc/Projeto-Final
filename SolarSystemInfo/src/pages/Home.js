@@ -9,11 +9,11 @@ import {
 
 import Data from './../data/Database'
 
+
 import TopicItem from './../../components/TopicItem';
 
   export default function App(props){
     return(
-
       <View style={styles.container}>
         <View style={styles.holderMainTopic}>
           <Image style={styles.mainTopLogo}

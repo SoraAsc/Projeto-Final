@@ -4,21 +4,23 @@ export default  [
       name: 'Sol',
       imageLink: require('./../../assets/images/sol.jpg'),
       informacoesBasicas: {
-        massa: '',
-        volume: '',
-        densidade: '',
-        areaDaSuperficie: '',
-        temperatura: '',
+        massa: '1,989×10^(30) kg',
+        volume: '1,40927×10^(18) km³',
+        densidade: '1,409 g/cm³',
+        areaDaSuperficie: '6,07877×10^(12) km²',
+        temperatura: '5505°C',
         periodoDeRotacao: '27 dias',
         periodoDeRevolucao: '2,2×(10)^8 anos',
-        gravidade: '',
-        velocidadeDeEscape: '',
+        gravidade: '274,0 m/s²',
+        velocidadeDeEscape: '617,5 km/s',
       },
       curiosidades: [
         {
           id: '001',
           titulo: '',
-          historia: "\t"
+          historia: "\tAs estrelas são enormes aglomerados de massa formados principalmente por átomos leves como o hidrogênio, hélio e outros. No início do universo, especificamente, os átomos não existiam, o universo era formado apenas por partículas subatômicas em extremo movimento como elétrons, prótons e etc. O motivo pelo qual a existência dos átomos era extinta neste período deve-se à alta temperatura do universo, que nesta etapa possui partículas com energia cinética tão altas que nem mesmo estruturas atômicas, até mesmo das menos complexas, eram capazes de serem formadas."+
+          "\tA expansão constante do universo fez com que suas  temperaturas baixassem a níveis que fossem possíveis a interação entre partículas. Se compreende que existem quatro forças primordiais as quais partículas poderiam interagir entre-si a força nuclear forte, força eletromagnética, força nuclear fraca e força gravitacional, em ordem de mais força respectivamente."+
+          "\tNeste período do universo as 4 forças passaram a atuar mutuamente entre as partículas devida a diminuição da energia cinética entre elas. A força nuclear forte entre prótons e nêutrons, a força eletromagnética entre prótons e elétrons, foram por um tempo as principais forças de interações atuando no universo, com elas o átomo foi criado."
         },
       ]
     },

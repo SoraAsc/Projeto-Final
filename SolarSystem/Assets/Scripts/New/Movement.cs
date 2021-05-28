@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
         focus1 = GameObject.FindGameObjectWithTag("Sun").transform;
         foreach (Planet planet in allPlanets)
         {
-            planet.orbitLine.GetComponent<VisualizeOrbit>().Initialize(planet.elipseAValue, planet.elipseBValue, focus1);
+            if(planet.planetName!="Sol") planet.orbitLine.GetComponent<VisualizeOrbit>().Initialize(planet.elipseAValue, planet.elipseBValue, focus1);
             if (planet.maxSateliteNatural > 0 && planet.SateliteNatural.Count > 0)
             {
                 for (int i = 0; i < planet.maxSateliteNatural; i++)
@@ -46,6 +46,7 @@ public class Movement : MonoBehaviour
         //Faz todos os planetas e os seus satelites se moverem.
         foreach (Planet planet in allPlanets)
         {
+            if (planet.planetName == "Sol") continue;
             //Colocando valores para a realização da orbita eliptica em todos os planetas
             if (planet.planetTranslateObject)
             {
@@ -69,13 +70,9 @@ public class Movement : MonoBehaviour
     {
         Vector3 center = new Vector3(focus.transform.position.x + c, 0, focus.position.z);
 
-
-        translateObject.transform.position = new Vector3(center.x + a * Mathf.Cos((alpha*6)/ OneDayInOneMinute(timeToTranslate) ), y, center.z + b * Mathf.Sin((alpha * 6) / OneDayInOneMinute(timeToTranslate) ));
+        translateObject.transform.position = new Vector3(center.x + a * Mathf.Cos((alpha*6)/ ReduceTime(timeToTranslate) ), y, center.z + b * Mathf.Sin((alpha * 6) / ReduceTime(timeToTranslate) ));
         translateObject.transform.parent.position = translateObject.transform.position;
-        //if (translateObject.CompareTag("Planet"))
-        translateObject.transform.RotateAround(translateObject.transform.parent.position, translateObject.transform.up, 360f * Time.deltaTime / OneDayInOneMinute(timeToRotate));
-        //else
-            //translateObject.transform.RotateAround(translateObject.transform.parent.parent.position, translateObject.transform.up, 360f * Time.deltaTime / 1);
+        translateObject.transform.RotateAround(translateObject.transform.parent.position, translateObject.transform.up, 360f * Time.deltaTime / ReduceTime(timeToRotate));
 
         alpha += Time.deltaTime;
 
@@ -88,9 +85,9 @@ public class Movement : MonoBehaviour
     /// </summary>
     /// <param name="value"></param>
     /// <returns></returns>
-    public float OneDayInOneMinute(float value)
+    public float ReduceTime(float value)
     {
-        return value / 1440f;
         //return value / 86400f;
+        return value / 1440f;
     }
 }

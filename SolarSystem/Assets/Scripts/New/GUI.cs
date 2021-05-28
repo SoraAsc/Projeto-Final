@@ -166,7 +166,7 @@ public class GUI : MonoBehaviour
             //transform.rotation = Quaternion.LookRotation(transform.position - gameManager.planets[i].planetRotateObject.transform.position);
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        cameraOrbitFollow.target = gameManager.planets[i].planetRotateObject.transform.parent;
+        cameraOrbitFollow.target = gameManager.planets[i].planetRotateObject.transform;
         PlanetNameAppear();
         yield return null;
     }

@@ -29,12 +29,6 @@ public class CameraFollow : MonoBehaviour
         rotationYAxis = angles.y; 
         rotationXAxis = angles.x;
 
-        // faz o ridigibody componente fisico não mudar a rotação, se o mesmo existir.
-        if (GetComponent<Rigidbody>())
-        {
-            GetComponent<Rigidbody>().freezeRotation = true;
-        }
-
         switch (Application.platform)
         {
             case RuntimePlatform.WindowsPlayer:
@@ -55,7 +49,7 @@ public class CameraFollow : MonoBehaviour
             if (isAndroid && Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)//caso tenha um dedo na tela e o mesmo estiver em movimento.
             {
                 touch = Input.GetTouch(0); //verifica só o primeiro dedo colocado na tela.
-                //pega os valores do movimento que variam de -1 a 1                          
+
                 velocityX += touch.deltaPosition.x * xSpeed * 0.02f;
                 velocityY -= touch.deltaPosition.y * ySpeed * 0.02f;
             }
@@ -71,20 +65,16 @@ public class CameraFollow : MonoBehaviour
             rotationYAxis += velocityX; 
             rotationXAxis -= velocityY;
 
-            //Restringe o valor colocado no caso rotationXAxis a permanecer entre o limite imposto pelo yMinLimit e yMaxLimit.
+            //Restringe o valor colocado no caso rotationXAxis a permanecer entre o limite imposto pelo MinLimit e MaxLimit.
             //Essa função pode ser encontrada abaixo.
-            rotationXAxis = ClampAngle(rotationXAxis, yMinLimit, yMaxLimit); 
+            //rotationXAxis = ClampAngle(rotationXAxis, yMinLimit, yMaxLimit); 
+            //rotationYAxis = ClampAngle(rotationXAxis, yMinLimit, yMaxLimit); 
 
-            //Quaternion fromRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
             Quaternion toRotation = Quaternion.Euler(rotationXAxis, rotationYAxis, 0);
             Quaternion rotation = toRotation;
 
             distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
-            if (Physics.Linecast(target.position, transform.position, out RaycastHit hit))//<=4)//Traça uma linha entre os objetos
-            {
-                distance -= hit.distance; //quando a linha bate em algo, o mesmo é jogado para tras, assim impedindo que a camera fique dentro do gameobject alvo.
-                //mas escolhemos não implementar essa parte.
-            }
+
             //e por final a distancia e a rotação são colocadas na camera.
             Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
             Vector3 position = rotation * negDistance + target.position;

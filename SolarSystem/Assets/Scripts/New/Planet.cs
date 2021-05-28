@@ -32,6 +32,11 @@ public class Planet : IComparable<Planet>
 
     public AudioClip planetSong;
 
+    public int speedIndex=0;
+    public float[] reduceSpeed;
+
+    public float speedMultiply;
+
     public Planet(string newPlanetName,float newPlanetTimeToRotate,
         float newPlanetTimeToTranslate, GameObject newPlanetTranslateObject, 
         GameObject newPlanetRotateObject,float newElipseAValue, float newElipseBValue,GameObject newOrbitLine,

@@ -52,32 +52,32 @@ public class Movement : MonoBehaviour
             {
                 //envia os valores para o movimento e retorna valores necessários para posteriormente serem enviados novamente para a orbita.
                 (planet.c, planet.alpha) = OrbitMotion(focus1, planet.elipseAValue, planet.elipseBValue, 0, planet.planetTimeToRotate,
-                     planet.planetTimeToTranslate, planet.c, planet.planetTranslateObject, planet.alpha);
+                     planet.planetTimeToTranslate, planet.c, planet.planetTranslateObject, planet.alpha, planet.speedMultiply);
                 foreach (Satellite satelite in planet.SateliteNatural)
                 {
                     if (satelite.satelliteTimeToRotate > 0 && satelite.satelliteTimeToTranslate > 0)
                     {
                         (satelite.c, satelite.alpha) = OrbitMotion(planet.planetRotateObject.transform, satelite.elipseAValue, satelite.elipseBValue, 0, satelite.satelliteTimeToRotate, satelite.satelliteTimeToTranslate,
-                            satelite.c, satelite.satelliteRotateObject, satelite.alpha);
+                            satelite.c, satelite.satelliteRotateObject, satelite.alpha,planet.speedMultiply);
                     }
                 }
             }
         }
     }
 
-    public (float,float) OrbitMotion(Transform focus,float a,float b,float y,float timeToRotate,
-        float timeToTranslate,float c,GameObject translateObject,float alpha)
+    public (float, float) OrbitMotion(Transform focus, float a, float b, float y, float timeToRotate,
+        float timeToTranslate, float c, GameObject translateObject, float alpha, float speedMultiply)
     {
         Vector3 center = new Vector3(focus.transform.position.x + c, 0, focus.position.z);
 
-        translateObject.transform.position = new Vector3(center.x + a * Mathf.Cos((alpha*6)/ ReduceTime(timeToTranslate) ), y, center.z + b * Mathf.Sin((alpha * 6) / ReduceTime(timeToTranslate) ));
+        translateObject.transform.position = new Vector3(center.x + a * Mathf.Cos((alpha/360f) ), y, center.z + b * Mathf.Sin((alpha / 360f) ));
         translateObject.transform.parent.position = translateObject.transform.position;
-        translateObject.transform.RotateAround(translateObject.transform.parent.position, translateObject.transform.up, 360f * Time.deltaTime / ReduceTime(timeToRotate));
+        translateObject.transform.RotateAround(translateObject.transform.parent.position, translateObject.transform.up, 360f * Time.deltaTime / ReduceTime(timeToRotate, speedMultiply));
 
-        alpha += Time.deltaTime;
+        alpha += 360* Time.deltaTime / ReduceTime(timeToTranslate,speedMultiply);
 
         c = Mathf.Sqrt(a * a - b * b);
-        return (c,alpha);
+        return (c, alpha);
     }
 
     /// <summary>
@@ -85,9 +85,10 @@ public class Movement : MonoBehaviour
     /// </summary>
     /// <param name="value"></param>
     /// <returns></returns>
-    public float ReduceTime(float value)
+    public float ReduceTime(float value,float multiply)
     {
+        return value / multiply;
         //return value / 86400f;
-        return value / 1440f;
+        //return value / 1440f;
     }
 }

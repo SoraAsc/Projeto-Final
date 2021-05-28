@@ -16,8 +16,8 @@ public class GUI : MonoBehaviour
     [SerializeField] Text informationText;
     [SerializeField] Sprite showSprite, hideSprite;
     ParticleSystem sunPa;
-    bool[] showVisualChildrens = new bool[2];
-    bool[] waitShowVisualChildrens = new bool[2];
+    bool[] showVisualChildrens = new bool[3];
+    bool[] waitShowVisualChildrens = new bool[3];
 
 
     #region MainMenu
@@ -48,10 +48,12 @@ public class GUI : MonoBehaviour
         //inicializa todos as variaveis e funções necessárias.
         showbuttons = false;
         canShowInformation = true;
-        showVisualChildrens[0] = false;
-        showVisualChildrens[1] = false;
-        waitShowVisualChildrens[0] = false;
-        waitShowVisualChildrens[1] = false;
+        for(int i = 0; i < showVisualChildrens.Length; i++)
+        {
+            showVisualChildrens[i] = false;
+            waitShowVisualChildrens[i] = false;
+        }
+
         gameManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
         cameraOrbitFollow = Camera.main.GetComponent<CameraFollow>();
         cameraOrbitFollow.gameObject.SetActive(false);
@@ -100,6 +102,17 @@ public class GUI : MonoBehaviour
         cameraOrbitFollow.distanceMin = gameManager.planets[i].distanceMin;
         cameraOrbitFollow.distanceMax = gameManager.planets[i].distanceMax;
         StartCoroutine(CameraFollowPlanet());
+    }
+
+    public void PlanetChangeSpeed(int newI)
+    {
+        gameManager.planets[newI].speedIndex++;
+        if(gameManager.planets[newI].reduceSpeed.Length <= gameManager.planets[newI].speedIndex)
+        {
+            gameManager.planets[newI].speedIndex = 0;
+        }
+        gameManager.planets[newI].speedMultiply = gameManager.planets[newI].reduceSpeed[gameManager.planets[newI].speedIndex];
+        UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text = gameManager.planets[newI].speedMultiply+"X";
     }
     public void HideAndShowButtons(Image btnImage)
     {
@@ -164,7 +177,7 @@ public class GUI : MonoBehaviour
             cameraOrbitFollow.transform.LookAt(gameManager.planets[i].planetRotateObject.transform.parent.position);
             //cameraOrbitFollow.transform.LookAt(2* cameraOrbitFollow.transform.position - gameManager.planets[i].planetRotateObject.transform.position);
             //transform.rotation = Quaternion.LookRotation(transform.position - gameManager.planets[i].planetRotateObject.transform.position);
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime * (1/gameManager.planets[i].speedMultiply) );
         }
         cameraOrbitFollow.target = gameManager.planets[i].planetRotateObject.transform;
         PlanetNameAppear();
@@ -197,48 +210,23 @@ public class GUI : MonoBehaviour
     /// </summary>
     /// <param name="child"></param>
     /// <returns></returns>
-    IEnumerator MenuShowDelay(Transform child)
+    IEnumerator MenuShowDelay(Transform father)
     {
-        bool actual, wait = false;
-        if (child.name.Contains("Opt"))
-        {
-            actual = showVisualChildrens[0]; //0 opções 1-navegação
-            wait = waitShowVisualChildrens[0];
-        }
-        else
-        {
-            actual = showVisualChildrens[1];
-            wait = waitShowVisualChildrens[1];
-        }
-        if (!wait)
-        {
-            actual = !actual;
-            if (child.name.Contains("Opt"))
-            {
-                showVisualChildrens[0] = actual; //0 opções 1-navegação
-                waitShowVisualChildrens[0] = !wait;
-            }
-            else
-            {
-                showVisualChildrens[1] = actual;
-                waitShowVisualChildrens[1] = !wait;
-            }
-            int cont = actual == true ? 0 : child.childCount - 1;
-            for (int i = 0; i < child.childCount; i++)
-            {
-                child.GetChild(Mathf.Abs(cont - i)).gameObject.SetActive(actual); //Abs transforma -1 em 1
-                yield return new WaitForSeconds(0.04f);
-            }
-            if (child.name.Contains("Opt"))
-            {
-                waitShowVisualChildrens[0] = !waitShowVisualChildrens[0];
-            }
-            else
-            {
-                waitShowVisualChildrens[1] = !waitShowVisualChildrens[1];
-            }
-        }
+        //0 opções 1-navegação 2 - velocidade
+        int index = father.name.Contains("Opt") ? 0 : father.name.Contains("Nav") ? 1 : 2;
 
+        if (!waitShowVisualChildrens[index])
+        {
+            waitShowVisualChildrens[index] = !waitShowVisualChildrens[index];
+            showVisualChildrens[index] = !showVisualChildrens[index];
+            int total = showVisualChildrens[index] ? 0 : father.childCount - 1;
+            for(int i = 0; i < father.childCount; i++)
+            {
+                father.GetChild(Mathf.Abs(total - i)).gameObject.SetActive(showVisualChildrens[index]); //Abs transforma -1 em 1
+                yield return new WaitForSeconds(0.03f);
+            }
+            waitShowVisualChildrens[index] = !waitShowVisualChildrens[index];
+        }
     }
 
     /// <summary>
@@ -274,7 +262,7 @@ public class GUI : MonoBehaviour
         menuCamera.gameObject.SetActive(false);
         baseMenuHolder.SetActive(false);
         creditsPanel.SetActive(true);
-        baseMenuHolder.transform.root.GetComponent<Canvas>().worldCamera = creditsCamera;
+        baseMenuHolder.transform.parent.GetComponent<Canvas>().worldCamera = creditsCamera;
     }
 
     private void Update()
@@ -284,7 +272,7 @@ public class GUI : MonoBehaviour
             menuCamera.gameObject.SetActive(true);
             creditsCamera.gameObject.SetActive(false);
             creditsPanel.SetActive(false); baseMenuHolder.SetActive(true); 
-            baseMenuHolder.transform.root.GetComponent<Canvas>().worldCamera = menuCamera; 
+            baseMenuHolder.transform.parent.GetComponent<Canvas>().worldCamera = menuCamera; 
         }
     }
 
@@ -323,43 +311,3 @@ public class GUI : MonoBehaviour
         ChangeColorOfToggle(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>(), state);
     }
 }
-
-
-
-/*    public void Left()
-    {
-        MoveBetween(gameManager.planets.Count - 1,-1);
-    }
-    public void Right()
-    {
-        MoveBetween(gameManager.planets.Count - 1);
-    }
-    public void MoveBetween(int max, int j = 1, int min = 0)
-    {
-        i += j;
-        i = i > max ?  min : i<min ? max : i;
-        cameraOrbitFollow.distanceMin = gameManager.planets[i].distanceMin;
-        cameraOrbitFollow.distanceMax = gameManager.planets[i].distanceMax;
-        StartCoroutine(CameraFollowPlanet());
-
-    }*/
-
-/*    /// <summary>
-    /// Faz os botões aparecem tudo ao mesmo tempo.
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator ButtonAppearSameTime()
-    {
-        int cont = 0;
-        while (mainMenuSlider[0].value < mainMenuSlider[0].maxValue)
-        {
-            while (mainMenuSlider.Length > cont)
-            {
-                mainMenuSlider[cont].value+= 0.1f;
-                cont++;
-            }
-            yield return new WaitForSeconds(0.00001f);
-            cont=0;
-        }
-
-    }*/

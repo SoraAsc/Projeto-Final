@@ -172,11 +172,6 @@ export default  [
           titulo: 'Porque marte é vermelho?',
           historia: "\tO Planeta Vermelho não recebe este nome à toa, realmente a superfície do planeta leva um tom avermelhado sobre toda ela, mas você já se perguntou o porquê? O planeta empoeirado recebe essa tonalidade justamente pela sua poeira rica em óxido de ferro que é resultado de reações de oxidação do metal chamado magnetita que concede ao planeta um tom semelhante à ferrugem."
         },
-        {
-          id: '003',
-          titulo: '”Tempestades de areia.”',
-          historia: "\t(...)"
-        },
       ]
     },
     {
@@ -269,6 +264,11 @@ export default  [
           titulo: 'Maior quantidade de Luas.',
           historia: "\tEm 2019 o Satélite Cassini detectou 20 novos Satélites Naturais em Saturno, somado com seus 62 Satélites antigos por pouco o planeta dos anéis ultrapassou Júpiter(79 Luas). Coroado com seu grande sistema de anéis Saturno possui no total 82 Satélites Naturais dentre estes estão os mais conhecidos Titã, segunda maior lua do Sistema Solar e a maior lua de Saturno, Enceladus, Tétis, Dione e Mimas."
         },
+        {
+          id: '004',
+          titulo: 'O planeta menos denso que a água.',
+          historia: "\tA densidade de Saturno corresponde a 0.687g/cm³, ou seja, se possível ser colocado imerso em água, Saturno boiaria devida a sua menor densidade(1g/cm³ densidade da água)."
+        },
       ]
     },
     {
@@ -292,8 +292,23 @@ export default  [
       curiosidades: [
         {
           id: '001',
-          titulo: '',
-          historia: "\t"
+          titulo: 'Sua coloração',
+          historia: "\tUm dos planetas mais belos do Sistema Solar no que diz respeito à sua coloração(minha opinião). Urano possui um tom de azul-esverdeado bem chamativo a qual lhe dá o cargo de um dos mais reflexivos de nosso Sistema Solar. Sua cor é dada pelo gás metano presente na composição de suas nuvens, que reflete a cor das extremidades do espectro de luz azul-verde devida a absorção das também extremidades do espectro de luz vermelho."
+        },
+        {
+          id: '002',
+          titulo: 'Anéis',
+          historia: "\tCom um grau de complexidade intermediário entre os anéis complexos de Saturno e os menos complexos dos outros gigantes gasosos, os anéis de Urano são caracterizados por pouco mais de 13 anéis em seu total constituídos principalmente por poeira e outras partículas maiores."
+        },
+        {
+          id: '003',
+          titulo: 'Rotação estranha.',
+          historia: "\tO gigante gasoso assim como Vênus apresenta uma rotação bem estranha, seu sentido continua sendo o mesmo, porém oque chama atenção aqui é o ângulo de inclinação. Urano rotaciona a quase 600 km/h em um ângulo quase perpendicular ao do Sistema Solar(aproximadamente 97,77 graus de inclinação). Especula-se que este movimento foi originado das interações gravitacionais complexas com os outros planetas gasosos. Sendo isso ou não, fato é que tal movimento do planeta faz com que astrônomos se divergirem entre qual seria o pólo norte e sul de Urano."
+        },
+        {
+          id: '004',
+          titulo: 'Gigante de gelo.',
+          historia: "\tJunto com Netuno, Urano faz parte dos chamados Gigantes de gelo. Devido à extrema distância do Sol, nesses planetas as temperaturas são extremas e negativas. Urano tem a sua máxima temperatura na casa dos -216°C, isso dá para o planeta a capacidade de não só fundir água como também o metano e amônia que possuem os pontos de fusão em -182°C e -77,73°C, respectivamente."
         },
       ]
     },
@@ -318,8 +333,18 @@ export default  [
       curiosidades: [
         {
           id: '001',
-          titulo: '',
-          historia: "\t"
+          titulo: 'Segundo planeta azul.',
+          historia: "\tEnquanto o núcleo de Netuno é formado por amônia, água e metano, sua atmosfera é principalmente constituída por metano, hélio e hidrogênio. Sabe-se que o gás metano é o principal agente causador de seu tom azulado, mas que ainda assim se difere tanto da de seu vizinho Urano."
+        },
+        {
+          id: '002',
+          titulo: 'O mais longe do Sol.',
+          historia: "\tO segundo gigante de gelo não leva este nome à toa, o planeta mais distante do Sol em nosso Sistema Solar possui temperaturas extremas, tão extremas quanto Urano. Infelizmente para o último planeta do sistema Solar suas temperaturas ainda não são as menores, Urano ainda possui esse título de mais frio do Sistema Solar devido a motivos complexos como sua rotação atípica e atmosfera."
+        },
+        {
+          id: '003',
+          titulo: 'A grande mancha escura.',
+          historia: "\tEssa mancha escura, um pouco menor que a Terra, na atmosfera de Netuno, foi uma grande abertura na atmosfera do planeta feita por uma grande tempestade. Este “Buraco” na atmosfera do planeta azul permite a observação das nuvens mais escuras visíveis um pouco mais abaixo de sua atmosfera do planeta. Esta mancha desapareceu 5 anos depois de sua observação(1989 a 1994)."
         },
       ]
     },
@@ -354,11 +379,7 @@ export default  [
       name: 'Sistema Solar',
       imageLink: require('./../../assets/images/sistemasolar.jpg'),
       informacoesBasicas: {
-        massa: '',
-        volume: '',
-        densidade: '',
-        areaDaSuperficie: '',
-        temperatura: '',
+        massa: '1,989×10^(30) kg',
         estrela: 'Sol',
         planetas: 8,
         planetasAnoes: 5,
@@ -370,8 +391,19 @@ export default  [
       curiosidades: [
         {
           id: '001',
-          titulo: '',
-          historia: "\t"
+          titulo: 'Do que se constitui?',
+          historia: "\tNosso Sistema Solar se constitui de massa advindas de gases, poeira, rochas, metais e etc. Claramente toda esta quantidade de massa não se distribui igualmente pelo Sistema Solar. O Sol possui cerca de 99,85% de toda a massa correspondente a nosso Sistema Solar, ou seja, planetas, luas e todos outros objetos de massa quase desprezíveis em nosso Sistema Solar correspondem a apenas 0,15%."+
+          "\tNosso Sistema Solar possui apenas uma estrela, o Sol, e 8 planetas, Mercúrio, Vênus, Terra, Marte, Júpiter, Saturno, Urano e Netuno. Fora o ex-planeta, o planeta anão Plutão, teoriza-se a existência de um nono planeta com a órbita mais distante, o planeta X. Porém como dito, apenas Teoria."
+        },
+        {
+          id: '002',
+          titulo: 'Forças que atuam.',
+          historia: "\tEm nossa estrela mais próxima as forças que atuam, como já dito na aba “Sol”, são as forças gravitacionais e a fusão nuclear que estabilizam o astro. Já nos planetas que o orbitam atuam apenas a força gravitacional, menor devida a menor massa, e a força eletromagnética do átomo, que evitam o contato dos núcleos atômicos devida a repulsão das camadas eletrônicas."
+        },
+        {
+          id: '003',
+          titulo: 'Como se formou?',
+          historia: "\tLogo na formação de nossa estrela, o disco proto planetário formado por gás e poeira que girava em torno de nossa estrela logo formada, começou a se acumular em objetos mais densos devido à atração gravitacional. Estes objetos se colidiram intensamente, formando objetos ainda mais massivos, com núcleo mais denso até dar a forma da qual vemos hoje, 8 planetas que transladam o Sol e rotacionam a si mesmos."
         },
       ]
     },

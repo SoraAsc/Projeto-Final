@@ -98,10 +98,13 @@ public class GUI : MonoBehaviour
 
     public void PlanetMove(int newI)
     {
-        i = newI;
-        cameraOrbitFollow.distanceMin = gameManager.planets[i].distanceMin;
-        cameraOrbitFollow.distanceMax = gameManager.planets[i].distanceMax;
-        StartCoroutine(CameraFollowPlanet());
+        if (i != newI)
+        {
+            i = newI;
+            cameraOrbitFollow.distanceMin = gameManager.planets[i].distanceMin;
+            cameraOrbitFollow.distanceMax = gameManager.planets[i].distanceMax;
+            StartCoroutine(CameraFollowPlanet());
+        }
     }
 
     public void PlanetChangeSpeed(int newI)
@@ -112,7 +115,11 @@ public class GUI : MonoBehaviour
             gameManager.planets[newI].speedIndex = 0;
         }
         gameManager.planets[newI].speedMultiply = gameManager.planets[newI].reduceSpeed[gameManager.planets[newI].speedIndex];
-        UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text = gameManager.planets[newI].speedMultiply+"X";
+        float pS = gameManager.planets[newI].speedMultiply;
+        Text speedText = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>();
+        speedText.text = pS == 1 ? "24h" : pS == 1440 ? "1min" : pS == 86400 ? "1s" : "48h"; 
+        //speedText.text = pS == 1 ? "24h" : pS == 1440 ? "1min" : pS == 86400 ? "1s" : pS == 8.64e+07 ? "1ms" : "48h"; 
+       //UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text = gameManager.planets[newI].speedMultiply+"X";
     }
     public void HideAndShowButtons(Image btnImage)
     {
@@ -168,11 +175,12 @@ public class GUI : MonoBehaviour
         else source.Stop();
         cameraOrbitFollow.target = null;
         Vector3 desiredPos = gameManager.planets[i].planetRotateObject.transform.parent.localPosition + offset;
+        float smSpe = gameManager.planets[i].speedMultiply >= 86400f ? .9f : smoothSpeed;
         while (Vector3.Distance(cameraOrbitFollow.transform.localPosition, desiredPos) >= gameManager.planets[i].distanceMin+.2f)
         {
-            //Debug.Log(Vector3.Distance(cameraOrbitFollow.transform.localPosition, desiredPos));
             desiredPos = gameManager.planets[i].planetRotateObject.transform.parent.localPosition + offset;
-            Vector3 smoothedPos = Vector3.Lerp(cameraOrbitFollow.transform.localPosition, desiredPos, smoothSpeed);
+            //Debug.Log(Vector3.Distance(cameraOrbitFollow.transform.localPosition, desiredPos));
+            Vector3 smoothedPos = Vector3.Lerp(cameraOrbitFollow.transform.localPosition, desiredPos, smSpe);
             cameraOrbitFollow.transform.localPosition = smoothedPos;
             cameraOrbitFollow.transform.LookAt(gameManager.planets[i].planetRotateObject.transform.parent.position);
             //cameraOrbitFollow.transform.LookAt(2* cameraOrbitFollow.transform.position - gameManager.planets[i].planetRotateObject.transform.position);
@@ -180,6 +188,8 @@ public class GUI : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime * (1/gameManager.planets[i].speedMultiply) );
         }
         cameraOrbitFollow.target = gameManager.planets[i].planetRotateObject.transform;
+        cameraOrbitFollow.xSpeed = 5f / gameManager.planets[i].planetRotateObject.transform.localScale.x;
+        cameraOrbitFollow.ySpeed = cameraOrbitFollow.xSpeed;
         PlanetNameAppear();
         yield return null;
     }

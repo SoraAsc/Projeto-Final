@@ -29,11 +29,14 @@ export default function Details(props){
             <View style={{ flexDirection:'column', alignItems: 'center',}}>
                 {data.informacoesBasicas.ordemOrbital!= null && <DetailsShowButton name="Ordem Orbital" value={data.informacoesBasicas.ordemOrbital}/>}
                 {data.informacoesBasicas.distanciaDoSol !=null && <DetailsShowButton name="Distância Do Sol" value={data.informacoesBasicas.distanciaDoSol}/>}
+
                 <DetailsShowButton name="Massa" value={data.informacoesBasicas.massa}/>
-                <DetailsShowButton name="Volume" value={data.informacoesBasicas.volume}/>
-                <DetailsShowButton name="Densidade" value={data.informacoesBasicas.densidade}/>
-                <DetailsShowButton name="Área da Superfície" value={data.informacoesBasicas.areaDaSuperficie}/>
-                <DetailsShowButton name="Temperatura" value={data.informacoesBasicas.temperatura}/>
+                {data.informacoesBasicas.volume !=null && <DetailsShowButton name="Volume" value={data.informacoesBasicas.volume}/>}
+                {data.informacoesBasicas.densidade !=null && <DetailsShowButton name="Densidade" value={data.informacoesBasicas.densidade}/>}
+                {data.informacoesBasicas.areaDaSuperficie !=null && <DetailsShowButton name="Área da Superfície" value={data.informacoesBasicas.areaDaSuperficie}/>}
+                {data.informacoesBasicas.temperatura !=null && <DetailsShowButton name="Temperatura" value={data.informacoesBasicas.temperatura}/>}
+
+ 
                 {data.informacoesBasicas.periodoDeRotacao !=null && <DetailsShowButton name="Período de Rotação" value={data.informacoesBasicas.periodoDeRotacao}/>}
                 {data.informacoesBasicas.periodoDeRevolucao!=null && <DetailsShowButton name="Período De Revolução" value={data.informacoesBasicas.periodoDeRevolucao}/>}
                 {data.informacoesBasicas.gravidade!=null && <DetailsShowButton name="Gravidade" value={data.informacoesBasicas.gravidade}/>}

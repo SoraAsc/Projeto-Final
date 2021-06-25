@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     {
         allPlanets = GetComponent<GameManager>().planets;
         focus1 = GameObject.FindGameObjectWithTag("Sun").transform;
+
         foreach (Planet planet in allPlanets)
         {
             if(planet.planetName!="Sol") planet.orbitLine.GetComponent<VisualizeOrbit>().Initialize(planet.elipseAValue, planet.elipseBValue, focus1);
@@ -17,7 +18,7 @@ public class Movement : MonoBehaviour
             {
                 for (int i = 0; i < planet.maxSateliteNatural; i++)
                 {
-                    float size = Random.value * 0.03f;
+                    float size = (Random.value+0.1f) * 0.024944f;
                     float value = Random.Range(0.68f, 3f);
 
                     float time = Random.Range(35000, 165000);
@@ -27,10 +28,11 @@ public class Movement : MonoBehaviour
                     satellite.satelliteTimeToTranslate = time;
                     satellite.satelliteTranslateObject = planet.SateliteNatural[0].satelliteTranslateObject;
                     satellite.satelliteRotateObject = satellite.gameObject;
-                    satellite.transform.localScale = new Vector3(size, size, size);
+                    satellite.transform.localScale = Vector3.one*size;
                     satellite.elipseAValue = value;
                     satellite.elipseBValue = value;
                     satellite.yValue = Random.Range(0.2f, 1);
+                    satellite.alpha = Random.Range(0.00f, 1900.00f);
                     satellite.GetComponent<Renderer>().material.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f),
                         Random.Range(0.0f, 1.0f), 1.0f);
                     satellitePoint.transform.SetParent(planet.SateliteNatural[0].satelliteTranslateObject.transform);
@@ -39,9 +41,10 @@ public class Movement : MonoBehaviour
                 }
             }
         }
+
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //Faz todos os planetas e os seus satelites se moverem.
         foreach (Planet planet in allPlanets)
@@ -57,12 +60,13 @@ public class Movement : MonoBehaviour
                 {
                     if (satelite.satelliteTimeToRotate > 0 && satelite.satelliteTimeToTranslate > 0)
                     {
-                        (satelite.c, satelite.alpha) = OrbitMotion(planet.planetRotateObject.transform, satelite.elipseAValue, satelite.elipseBValue, 0, satelite.satelliteTimeToRotate, satelite.satelliteTimeToTranslate,
-                            satelite.c, satelite.satelliteRotateObject, satelite.alpha,planet.speedMultiply);
+                        (satelite.c, satelite.alpha) = OrbitMotion(planet.planetRotateObject.transform, satelite.elipseAValue, satelite.elipseBValue, 0, satelite.satelliteTimeToRotate,
+                            satelite.satelliteTimeToTranslate, satelite.c, satelite.satelliteRotateObject, satelite.alpha, planet.speedMultiply);
                     }
                 }
             }
         }
+
     }
 
     public (float, float) OrbitMotion(Transform focus, float a, float b, float y, float timeToRotate,
@@ -70,11 +74,16 @@ public class Movement : MonoBehaviour
     {
         Vector3 center = new Vector3(focus.transform.position.x + c, 0, focus.position.z);
 
-        translateObject.transform.position = new Vector3(center.x + a * Mathf.Cos((alpha/360f) ), y, center.z + b * Mathf.Sin((alpha / 360f) ));
-        translateObject.transform.parent.position = translateObject.transform.position;
-        translateObject.transform.RotateAround(translateObject.transform.parent.position, translateObject.transform.up, 360f * Time.deltaTime / ReduceTime(timeToRotate, speedMultiply));
+        translateObject.transform.position = new Vector3(center.x + a * Mathf.Cos((alpha) ), y, center.z + b * Mathf.Sin((alpha) ));
+        if(translateObject.CompareTag("Planet"))
+            translateObject.transform.parent.position = translateObject.transform.position;
+/*        else
+            translateObject.transform.parent.parent.position = translateObject.transform.position;*/
 
-        alpha += 360* Time.deltaTime / ReduceTime(timeToTranslate,speedMultiply);
+
+        translateObject.transform.RotateAround(translateObject.transform.parent.position, translateObject.transform.up,360f * Time.deltaTime / ReduceTime(timeToRotate, speedMultiply));
+
+        alpha += 6* Time.deltaTime / ReduceTime(timeToTranslate,speedMultiply);
 
         c = Mathf.Sqrt(a * a - b * b);
         return (c, alpha);
@@ -88,7 +97,5 @@ public class Movement : MonoBehaviour
     public float ReduceTime(float value,float multiply)
     {
         return value / multiply;
-        //return value / 86400f;
-        //return value / 1440f;
     }
 }

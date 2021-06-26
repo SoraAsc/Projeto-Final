@@ -9027,7 +9027,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.5
-  m_Range: 8000
+  m_Range: 20000
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -9550,7 +9550,6 @@ GameObject:
   - component: {fileID: 601522657}
   - component: {fileID: 601522658}
   - component: {fileID: 601522659}
-  - component: {fileID: 601522661}
   - component: {fileID: 601522660}
   m_Layer: 0
   m_Name: Manager
@@ -9927,18 +9926,6 @@ MonoBehaviour:
   distanceMin: 30000
   chanceSpawn: 0.2
   starFather: {fileID: 1517692874}
---- !u!114 &601522661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601522656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4be46caed5c3f4b999578484f0ea05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &607148010 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1488288676840016918, guid: b96642085e2776d46aab68f572759465,
@@ -17849,7 +17836,7 @@ Camera:
     height: 1
   near clip plane: 0.2
   far clip plane: 60000
-  field of view: 25
+  field of view: 26.991467
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

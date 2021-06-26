@@ -176,7 +176,7 @@ public class GUI : MonoBehaviour
         cameraOrbitFollow.target = null;
         Vector3 desiredPos = gameManager.planets[i].planetRotateObject.transform.parent.localPosition + offset;
         float smSpe = gameManager.planets[i].speedMultiply >= 86400f ? .9f : smoothSpeed;
-        while (Vector3.Distance(cameraOrbitFollow.transform.localPosition, desiredPos) >= gameManager.planets[i].distanceMin+.2f)
+        while (Vector3.Distance(cameraOrbitFollow.transform.localPosition, desiredPos) >= gameManager.planets[i].distanceMin)
         {
             desiredPos = gameManager.planets[i].planetRotateObject.transform.parent.localPosition + offset;
             //Debug.Log(Vector3.Distance(cameraOrbitFollow.transform.localPosition, desiredPos));
@@ -188,8 +188,9 @@ public class GUI : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime * (1/gameManager.planets[i].speedMultiply) );
         }
         cameraOrbitFollow.target = gameManager.planets[i].planetRotateObject.transform;
-        cameraOrbitFollow.xSpeed = 5f / gameManager.planets[i].planetRotateObject.transform.localScale.x;
+        cameraOrbitFollow.xSpeed = 2f / gameManager.planets[i].planetRotateObject.transform.localScale.x;
         cameraOrbitFollow.ySpeed = cameraOrbitFollow.xSpeed;
+        cameraOrbitFollow.distance = cameraOrbitFollow.distanceMin;
         PlanetNameAppear();
         yield return null;
     }

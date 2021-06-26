@@ -16,12 +16,14 @@ public class Movement : MonoBehaviour
             if(planet.planetName!="Sol") planet.orbitLine.GetComponent<VisualizeOrbit>().Initialize(planet.elipseAValue, planet.elipseBValue, focus1);
             if (planet.maxSateliteNatural > 0 && planet.SateliteNatural.Count > 0)
             {
+                //Gerando e inicializando valores aleatórios para os satelites naturais extras.
                 for (int i = 0; i < planet.maxSateliteNatural; i++)
                 {
                     float size = (Random.value+0.1f) * 0.024944f;
                     float value = Random.Range(0.68f, 3f);
 
-                    float time = Random.Range(35000, 165000);
+                    float time = Random.Range(planet.SateliteNatural[0].satelliteTimeToRotate - 35000, planet.SateliteNatural[0].satelliteTimeToRotate+35000);
+                    //float time = Random.Range(350000, 1650000);
                     GameObject satellitePoint = Instantiate(planet.holderSatelite);
                     Satellite satellite = satellitePoint.transform.GetChild(0).GetComponent<Satellite>();
                     satellite.satelliteTimeToRotate = time;
@@ -37,6 +39,7 @@ public class Movement : MonoBehaviour
                         Random.Range(0.0f, 1.0f), 1.0f);
                     satellitePoint.transform.SetParent(planet.SateliteNatural[0].satelliteTranslateObject.transform);
                     satellitePoint.transform.eulerAngles = new Vector3(0, 0,planet.SateliteNatural[0].transform.parent.eulerAngles.z);
+                    satellitePoint.transform.localPosition = Vector3.zero;
                     planet.SateliteNatural.Add(satellite);
                 }
             }
@@ -77,11 +80,8 @@ public class Movement : MonoBehaviour
         translateObject.transform.position = new Vector3(center.x + a * Mathf.Cos((alpha) ), y, center.z + b * Mathf.Sin((alpha) ));
         if(translateObject.CompareTag("Planet"))
             translateObject.transform.parent.position = translateObject.transform.position;
-/*        else
-            translateObject.transform.parent.parent.position = translateObject.transform.position;*/
 
-
-        translateObject.transform.RotateAround(translateObject.transform.parent.position, translateObject.transform.up,360f * Time.deltaTime / ReduceTime(timeToRotate, speedMultiply));
+        translateObject.transform.RotateAround(translateObject.transform.parent.position, translateObject.transform.up,360f * Time.deltaTime / timeToRotate* speedMultiply);
 
         alpha += 6* Time.deltaTime / ReduceTime(timeToTranslate,speedMultiply);
 
